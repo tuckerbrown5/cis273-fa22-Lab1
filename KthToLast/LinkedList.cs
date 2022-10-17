@@ -141,37 +141,10 @@ namespace KthToLast
             return default(T);
         }
 
+        // Incomplete
         public void InsertAfter(T newValue, T existingValue)
         {
 
-            // traverse
-            
-            var currentNode = Head;
-
-            while (currentNode != null)
-            {
-                
-                if (currentNode.Data.Equals(existingValue))
-                {
-                    //insert new node
-
-                    var newNode = new LinkedListNode<T>(newValue);
-
-                    newNode.Next = currentNode.Next;
-                    currentNode.Next = newNode;
-                    
-
-                    if (currentNode == Tail)
-                    {
-                        Tail = currentNode.Next;
-                    }
-
-                    length++;
-                    
-                }
-
-                currentNode = currentNode.Next;                
-          }
         }
 
         public void InsertAt(T value, int index)
@@ -300,82 +273,16 @@ namespace KthToLast
             }
         }
 
+        // Incomplete
         public void RemoveAt(int index)
         {
-            if (IsEmpty)
-            {
-                return;
-            }
-
-            if (Head.Data.Equals(index))
-            {
-
-                //1-element list
-                if (Head == Tail)
-                {
-                    Tail = null;
-                    //Head = null;
-                }
-
-                else
-                {
-                    Head = Head.Next;
-                }
-                length--;
-                return;
-            }
-
-            // Remove non-head node
-
-            var currentNode = Head;
-
-            while (currentNode != null)
-            {
-                // if you already find the node htat needs to be removed, you cannot change the one before 
-                //you cannot go backwards
-                if (currentNode != null && currentNode.Data.Equals(index))
-                {
-                    var nodeToDelete = currentNode;
-
-                    if (nodeToDelete == Tail)
-                    {
-                        currentNode.Next = null;
-                        Tail = currentNode;
-                    }
-
-                    else
-                    {
-                        currentNode.Next = nodeToDelete.Next;
-
-                        nodeToDelete.Next = null;
-
-                    }
-
-                    return;
-                }
-
-                currentNode = currentNode.Next;
-            }
+            
         }
 
+        // Incomplete
         public IList<T> Reverse()
         {
             var reversedList = new LinkedList<T>();
-
-            int index = 0;
-            var currentNode = Head;
-            int currentIndex = 0;
-
-            while (index != length + 1)
-            {
-                if (currentIndex == index)
-                {
-                    Prepend(currentNode.Data);
-                }
-                index++;
-                currentNode = currentNode.Next;
-                currentIndex++;
-            }
 
             return reversedList;
         }
