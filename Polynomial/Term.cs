@@ -12,6 +12,7 @@ namespace Polynomial
             Coefficient = coeffecient;
 		}
 
+		// TODO
 		public override string ToString()
 		{
 			return $"{Coefficient}x^{Power}";
