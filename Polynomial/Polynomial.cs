@@ -80,6 +80,17 @@ namespace Polynomial
         {
             Polynomial difference = new Polynomial();
             // Do the work...
+            // add all the terms from p1 to sum
+            foreach (var term in p1.terms)
+            {
+                difference.AddTerm(term.Coefficient*-1, term.Power);
+            }
+
+            // add all the terms from p2 to sum
+            foreach (var term in p2.terms)
+            {
+                difference.AddTerm(term.Coefficient*-1, term.Power);
+            }
 
             return difference;
         }
@@ -90,7 +101,7 @@ namespace Polynomial
 
             foreach(var term in p.terms)
             {
-                inverse.AddTerm(term.Coefficient * -1, term.Power);
+                inverse.AddTerm(term.Coefficient * - 1, term.Power);
             }
 
             return inverse;
@@ -99,8 +110,19 @@ namespace Polynomial
         public static Polynomial Multiply(Polynomial p1, Polynomial p2)
         {
             Polynomial product = new Polynomial();
+            Polynomial heat = new Polynomial();
             // Do the work...
-
+            foreach (var term in p1.terms)
+            {
+                heat.AddTerm(term.Coefficient, term.Power);
+            }
+            foreach (var term in heat.terms)
+            {
+                foreach (var rex in p2.terms)
+                {
+                    product.AddTerm(term.Coefficient + rex.Coefficient, term.Power + rex.Power);
+                }
+            }
             return product;
         }
 

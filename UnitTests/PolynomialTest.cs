@@ -6,8 +6,8 @@ namespace Polynomial
     public class PolynomialUnitTests
     {
 
-	//mostly tests Degree and NumberOfTerms for various operations
-	//requires extra checks using ToString()
+        //mostly tests Degree and NumberOfTerms for various operations
+        //requires extra checks using ToString()
         [TestMethod]
         public void ToStringReturn0()
         {
@@ -115,7 +115,7 @@ namespace Polynomial
 
             Term term2 = new Term(0, 3);
             polynomial.AddTerm(term2.Coefficient, term2.Power);
-            Assert.AreEqual("5.1", polynomial.ToString().Substring(0,3));
+            Assert.AreEqual("5.1", polynomial.ToString().Substring(0, 3));
         }
 
         [TestMethod]

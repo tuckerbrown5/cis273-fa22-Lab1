@@ -144,7 +144,18 @@ namespace KthToLast
         // Incomplete
         public void InsertAfter(T newValue, T existingValue)
         {
-
+            var currentNode = Head;
+            int count = 0;
+            if (IsEmpty || Contains(existingValue) == false)
+            {
+                Append(newValue);
+            }
+            while (existingValue != null && !(currentNode.Data.Equals(existingValue)))
+            {
+                currentNode = currentNode.Next;
+                count++;
+            }
+            InsertAt(newValue, count + 1);
         }
 
         public void InsertAt(T value, int index)
@@ -276,7 +287,7 @@ namespace KthToLast
         // Incomplete
         public void RemoveAt(int index)
         {
-            
+            Remove(Get(index));
         }
 
         // Incomplete
