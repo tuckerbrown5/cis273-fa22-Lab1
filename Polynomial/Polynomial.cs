@@ -17,6 +17,10 @@ namespace Polynomial
         // TODO
         public void AddTerm(double coeff, int power)
 		{
+            if (coeff == 0)
+            {
+                return;
+            }
             var currentNode = terms.First;
             while( currentNode != null )
             {
@@ -48,10 +52,24 @@ namespace Polynomial
         public override string ToString()
         {
             string result = "";
+            var count = 0;
 
-            foreach( var term in terms)
+            if (terms.Count == 0)
             {
-                result += term.ToString() + " + ";
+                return "0";
+            }
+
+            foreach (var term in terms)
+            {
+                if (term.Coefficient != 0)
+                {
+                    result += term.ToString();
+                    count++;
+                }
+                if (count < terms.Count - 1)
+                {
+                    result += "+";
+                }
             }
 
             return result;
